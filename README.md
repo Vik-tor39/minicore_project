@@ -13,7 +13,7 @@
 
 ## 🧠 Descripción General
 
-El sistema está diseñado para empresas o negocios que necesitan llevar control de ventas individuales y calcular comisiones basadas en metas de venta.  
+El sistema está diseñado para llevar el control de ventas individuales y calcular comisiones basadas en metas de venta.  
 Ofrece un panel simple y funcional donde se pueden:
 
 - Registrar vendedores y ventas.
@@ -148,7 +148,7 @@ class ReglasModel(models.Model):
 ---
 
 ## 🛠️ Archivos clave del despliegue
-> Procfile
+> procfile
 ```makefile
 web: gunicorn minicore_project.wsgi
 ```
@@ -164,6 +164,11 @@ sqlparse==0.5.3
 tzdata==2025.2
 whitenoise==6.11.0
 ```
+
+---
+
+## 🎥 Video demostrativo
+[![Ver demostración breve del proyecto](https://img.youtube.com/vi/GJ4i0VVl1cw/hqdefault.jpg)](https://www.youtube.com/watch?v=GJ4i0VVl1cw)
 
 ---
 
