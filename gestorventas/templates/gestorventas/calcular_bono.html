@@ -1,0 +1,63 @@
+{% extends 'gestorventas/base.html' %}
+{% block title %}Calcular Comisiones{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Calcular Comisiones por Vendedor</h2>
+
+{% if mensaje %}
+<div class="alert alert-warning">{{ mensaje }}</div>
+{% endif %}
+
+<form method="POST" class="card p-4 shadow-sm mb-4">
+    {% csrf_token %}
+    <div class="row g-3 align-items-end">
+        <div class="col-md-4">
+            <label for="vendedor" class="form-label">Vendedor (opcional)</label>
+            <select name="vendedor" id="vendedor" class="form-select">
+                <option value="">-- Todos los vendedores --</option>
+                {% for v in vendedores %}
+                <option value="{{ v.vendedorId }}">{{ v.nombreVendedor }} {{ v.apellidoVendedor }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+            <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <label for="fecha_fin" class="form-label">Fecha Fin</label>
+            <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" required>
+        </div>
+        <div class="col-md-2 text-end">
+            <button type="submit" class="btn btn-primary w-100">Calcular</button>
+        </div>
+    </div>
+</form>
+
+{% if tabla_vendedores %}
+<h3 class="mb-3">Resultados</h3>
+<table class="table table-bordered table-striped text-center align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Vendedor</th>
+            <th>Ventas Totales ($)</th>
+            <th>Meta ($)</th>
+            <th>Comisión (%)</th>
+            <th>Bono ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for v in tabla_vendedores %}
+        <tr>
+            <td>{{ v.nombre }}</td>
+            <td>{{ v.ventas_totales }}</td>
+            <td>{{ v.meta_venta }}</td>
+            <td>{{ v.comision }}</td>
+            <td class="fw-bold text-success">{{ v.bono }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

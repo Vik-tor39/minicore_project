@@ -1,0 +1,13 @@
+{% extends 'gestorventas/base.html' %}
+{% block title %}Venta Registrada{% endblock %}
+{% block content %}
+
+<div class="alert alert-success mt-4">
+    <h4 class="alert-heading">¡Venta registrada con éxito!</h4>
+    <p>La información se ha guardado correctamente en el sistema.</p>
+    <hr>
+    <a href="{% url 'registrar_venta' %}" class="btn btn-success">Registrar otra venta</a>
+    <a href="{% url 'index' %}" class="btn btn-outline-secondary">Volver al inicio</a>
+</div>
+
+{% endblock %}

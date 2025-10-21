@@ -1,0 +1,12 @@
+{% extends 'gestorventas/base.html' %}
+{% block title %}Inicio - Gestor de Ventas{% endblock %}
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-5 fw-bold">Bienvenido al Sistema de Ventas y Comisiones</h1>
+    <p class="lead mt-3">Administra las ventas de tus vendedores y calcula automáticamente las comisiones según sus metas.</p>
+    <div class="mt-4">
+        <a href="{% url 'registrar_venta' %}" class="btn btn-primary btn-lg">Registrar Venta</a>
+        <a href="{% url 'calcular_comisiones' %}" class="btn btn-outline-secondary btn-lg">Calcular Comisiones</a>
+    </div>
+</div>
+{% endblock %}
