@@ -1,1 +1,1 @@
-web: gunicorn minicore.wsgi
+web: gunicorn minicore_project.wsgi
